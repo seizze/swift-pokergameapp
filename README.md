@@ -1,8 +1,12 @@
 # PokerGameApp
 
-포커게임 앱 저장소
+코드스쿼드 포커게임 앱 저장소
+
+![step6-animation-result](step6-animation-result.gif)
 
 ## STEP1. 게임판 만들기
+
+> [PR #10 Step1 기본 게임판 구현][pr-step1]
 
 * 게임판 배경 패턴 설정
 * 이미지뷰가 7개 들어가는 스택뷰를 생성하여 7개 카드 뒷면 디스플레이
@@ -12,6 +16,8 @@
 ![step1-result](step1-result.png)
 
 ## STEP2. 카드 클래스
+
+> [PR #13 Step2 카드 클래스 구현][pr-step2]
 
 * 카드 클래스 설계
     * ♥️♣️♠️♦️ 중 하나의 모양을 가진다.
@@ -26,20 +32,28 @@
 
 ## STEP3. 카드덱 구현과 테스트
 
+> [PR #18 Step3 카드덱 구현 및 테스트][pr-step3]
+
 * 열거형이 CaseIterable을 따르도록 하고, 모든 case에 대해 열거형 인스턴스 생성해서 카드덱 초기화
 * 카드덱 구조체의 removeone, reset, shuffle 메서드 구현 및 테스트
 
 ### 수정한 내용
+
+> [PR #21 Step3.1 Shuffle 테스트 메서드 개선][pr-step3.1]
+
 * 셔플을 100% 확률로 테스트하기 위해 seed를 고정하여 실행할 때마다 같은 랜덤 넘버를 발생시키는 커스텀 랜덤 넘버 제너레이터를 구현
 * 카드 덱의 셔플 함수에 Default Parameter Value를 이용하여 랜덤 넘버 제너레이터를 제공하지 않을 경우 시스템 기본 랜덤 넘버 제너레이터를 이용하도록 구현
 
-### 또 수정한 내용
+### 개선한 내용
+
 * 테스트와 실제 사용에서 같은 코드가 동작하게 하기 위해서 `RandomNumberGenerator`의 구현체를 항상 외부에서 넣어주는 방식으로 변경
 
 **실행 결과**
 ![step3-result](step3-result.png)
 
 ## STEP4. 포커 딜러와 게임 플레이 구현 및 테스트
+
+> [PR #36 Step4 포커 딜러와 게임 플레이 구현 및 테스트][pr-step4]
 
 * 현재 게임 플레이 정보를 담고있는 GamePlay 클래스 구현
 * 카드를 나눠주는 딜러 클래스 구현
@@ -53,6 +67,8 @@
 * 테스트 메서드 전체적으로 변경
 
 ## STEP5. 포커게임 UI 구성하기
+
+> [PR #61 Step5 포커게임 UI 구성][pr-step5]
 
 * 커스텀 뷰 클래스를 이용하여 게임 모드를 선택하는 PlayModeSelectionView 구현
 * 참가자 뷰를 나타내는 ParticipantView, 그 안의 겹쳐진 카드 뷰를 나타내는 Overlapped Card View 구현
@@ -86,6 +102,8 @@
 ![step5_result](step5-result.png)
 
 ## STEP6. 승자 결정하기
+
+> [PR #73 Step6 승자 결정하기][pr-step6]
 
 * 승자 확인 어떻게할지 고민..
 * 카드에 여러 프로토콜과 연산자 구현
@@ -127,6 +145,8 @@
 
 ## STEP6.1 카드 Dealing 애니메이션 구현
 
+> [PR #82 Step6.1 카드 Dealing 애니메이션 구현][pr-step6.1]
+
 * View Programming Guide for iOS의 Animation 파트 읽기
 * Property Animator와 Key Frame Animation을 이용하여 한 hand를 animate
 * 플레이어 순서대로 한장씩 나눠주도록 변경
@@ -146,3 +166,11 @@
 
 ![step6-animation-result](step6-animation-result.gif)
 
+[pr-step1]: https://github.com/code-squad/swift-pokergameapp/pull/10
+[pr-step2]: https://github.com/code-squad/swift-pokergameapp/pull/13
+[pr-step3]: https://github.com/code-squad/swift-pokergameapp/pull/18
+[pr-step3.1]: https://github.com/code-squad/swift-pokergameapp/pull/21
+[pr-step4]: https://github.com/code-squad/swift-pokergameapp/pull/36
+[pr-step5]: https://github.com/code-squad/swift-pokergameapp/pull/61
+[pr-step6]: https://github.com/code-squad/swift-pokergameapp/pull/73
+[pr-step6.1]: https://github.com/code-squad/swift-pokergameapp/pull/82
